@@ -66,7 +66,7 @@ def get_instance_region():
     fetcher = botocore.utils.InstanceMetadataFetcher()
 
     try:
-        r = fetcher._get_request('http://169.254.169.254/latest/dynamic/instance-identity/document', fetcher._timeout, fetcher._num_attempts)
+        r = fetcher._get_request('/latest/dynamic/instance-identity/document', None)
         if r.content:
             val = r.content.decode('utf-8')
             if val[0] == '{':
